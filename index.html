@@ -1,0 +1,30 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>PDF Cobrowse Testing page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+<script id="glance-cobrowse" type="text/javascript" src="https://www.glancecdn.net/cobrowse/CobrowseJS.ashx?group=20541&site=staging" data-groupid="20541" data-site="staging" data-inputevents='{"ctrl-13" : "startSession", "ctrl-9" : "toggleButton"}'
+  charset="UTF-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+
+</head>
+
+
+
+<body>
+    <a glance_button="startSession" href="#">Cobrowse</a>
+    <br>
+    <a href="#" id="printStitch">Download</a>
+    
+    <script>
+  document.getElementById('printStitch').onclick = function() {
+    if (GLANCE.Cobrowse.Visitor.inSession()) {
+      GLANCE.Cobrowse.Visitor.viewPDF({
+        url: 'https://justcobrowse.com/pdf/fcauktest.pdf'
+      });
+
+    } else
+      window.open("https://justcobrowse.com/pdf/fcauktest.pdf", "_blank", "status=no,menubar=no,toolbar=no,scrollbars=no,resizable=no,width=930,height=550");
+  }
+</script>
+</body>
